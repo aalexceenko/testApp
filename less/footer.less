@@ -1,0 +1,23 @@
+.footer {
+    padding-bottom: 15px;
+    p {
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        color: #CCCCCC;
+        position: relative;
+        margin-bottom: 0;
+
+        &::before {
+            position: absolute;
+            top: -12px;
+            width: 280px;
+            height: 1px;
+            background-color: #CCCCCC;
+            left: 50%;
+            right: 50%;
+            transform: translate(-50%, -50%);
+            content: '';
+        }
+    }
+}

@@ -1,0 +1,106 @@
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // background: rgba(0,0,0,0.5); /* цвет фона */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    transition: opacity 200ms ease-in; /* анимация перехода */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+    // width: 100%;
+    max-width: 619px;
+
+    &:target {
+        opacity: 1; /* делаем окно видимым */
+        pointer-events: auto; /* элемент видим для событий мыши */
+        overflow-y: auto; 
+    }
+
+    &__dialog {
+        position: relative;
+        // width: auto;
+        // margin: 10px;
+
+        &-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid rgba(0,0,0,.2);
+            border-radius: .3rem;
+            outline: 0;
+            height: 100vh;
+            max-height: 537px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid #eceeef;
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: 1.5;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+    }
+
+    &__close {
+        float: right;
+        font-family: sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .5;
+        text-decoration: none;
+
+        &:focus, &:hover {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            opacity: .75;
+        }
+    }
+
+    &__body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 15px;
+        overflow: auto;
+
+        img {
+            display: block;
+            height: 205px;
+            width: 320px;
+            outline: 1px dashed black;
+        }
+    }
+}
+
+// @media (min-width: 576px) {
+//   .modal-dialog {
+//       max-width: 500px;
+//       margin: 30px auto; /* для отображения модального окна по центру */
+//   }
+// }
+
+// @media (min-width: 768px) {
+//   .modal-content {
+//       -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+//       box-shadow: 0 5px 15px rgba(0,0,0,.5);
+//   }
+// }
+
+

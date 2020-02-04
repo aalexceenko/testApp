@@ -1,0 +1,153 @@
+body {
+  min-width: 320px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: 1px dashed;
+  width: 320px;
+  font-family: 'Roboto Condensed', 'Arial', sans-serif;
+  color: #000000;
+  margin: 0 auto;
+  background-color: #ffffff;
+  font-style: normal;
+}
+.header {
+  font-size: 36px;
+}
+.header h1 {
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: normal;
+  text-align: center;
+}
+.main__photo {
+  width: 280px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.main__photo img {
+  width: 280px;
+  height: 171px;
+  margin-bottom: 30px;
+}
+.footer {
+  padding-bottom: 15px;
+}
+.footer p {
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  color: #CCCCCC;
+  position: relative;
+  margin-bottom: 0;
+}
+.footer p::before {
+  position: absolute;
+  top: -12px;
+  width: 280px;
+  height: 1px;
+  background-color: #CCCCCC;
+  left: 50%;
+  right: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  content: '';
+}
+.modal {
+  position: fixed;
+  /* фиксированное положение */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  opacity: 0;
+  /* по умолчанию модальное окно прозрачно */
+  -webkit-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+  /* анимация перехода */
+  pointer-events: none;
+  /* элемент невидим для событий мыши */
+  margin: 0;
+  padding: 0;
+  max-width: 619px;
+}
+.modal:target {
+  opacity: 1;
+  /* делаем окно видимым */
+  pointer-events: auto;
+  /* элемент видим для событий мыши */
+  overflow-y: auto;
+}
+.modal__dialog {
+  position: relative;
+}
+.modal__dialog-content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: .3rem;
+  outline: 0;
+  height: 100vh;
+  max-height: 537px;
+}
+.modal__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #eceeef;
+}
+.modal__header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.modal__close {
+  float: right;
+  font-family: sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .5;
+  text-decoration: none;
+}
+.modal__close:focus,
+.modal__close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .75;
+}
+.modal__body {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  padding: 15px;
+  overflow: auto;
+}
+.modal__body img {
+  display: block;
+  height: 205px;
+  width: 320px;
+  outline: 1px dashed black;
+}
