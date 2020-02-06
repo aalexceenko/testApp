@@ -2,7 +2,7 @@
 
 (function () {
 
-  var URL_LOAD = 'https://boiling-refuge-66454.herokuapp.com/images';
+//   var URL_LOAD = 'https://boiling-refuge-66454.herokuapp.com/images';
 //   var URL_UPLOAD = 'https://js.dump.academy/keksobooking';
   var TIMEOUT = 10000;
 
@@ -14,7 +14,7 @@
     SERVER_ERROR: 500
   };
 
-  window.load = function (onLoad, onError) {
+  window.load = function (onLoad, onError, URL_LOAD='https://boiling-refuge-66454.herokuapp.com/images') {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
     xhr.timeout = TIMEOUT;

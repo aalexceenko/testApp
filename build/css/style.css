@@ -61,8 +61,6 @@ body {
   bottom: 0;
   left: 0;
   z-index: 1050;
-  opacity: 0;
-  /* по умолчанию модальное окно прозрачно */
   -webkit-transition: opacity 200ms ease-in;
   transition: opacity 200ms ease-in;
   /* анимация перехода */
@@ -70,14 +68,8 @@ body {
   /* элемент невидим для событий мыши */
   margin: 0;
   padding: 0;
+  display: none;
   max-width: 619px;
-}
-.modal:target {
-  opacity: 1;
-  /* делаем окно видимым */
-  pointer-events: auto;
-  /* элемент видим для событий мыши */
-  overflow-y: auto;
 }
 .modal__dialog {
   position: relative;
@@ -119,35 +111,83 @@ body {
   font-size: 1.25rem;
   font-weight: 500;
 }
-.modal__close {
-  float: right;
-  font-family: sans-serif;
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: .5;
-  text-decoration: none;
+.modal__close::before,
+.modal__close::after {
+  content: '';
+  position: absolute;
+  background-color: #000000;
+  width: 2px;
+  height: 24px;
 }
-.modal__close:focus,
-.modal__close:hover {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  opacity: .75;
+.modal__close::before {
+  top: 17px;
+  right: 23px;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.modal__close::after {
+  top: 17px;
+  right: 24px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.modal__close:hover::before {
+  background-color: #CCCCCC;
+}
+.modal__close:hover::after {
+  background-color: #CCCCCC;
 }
 .modal__body {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  padding: 15px;
   overflow: auto;
 }
 .modal__body img {
   display: block;
-  height: 205px;
-  width: 320px;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.modal__body-comments {
+  width: 276px;
   outline: 1px dashed black;
+  margin: 0 auto 40px;
+}
+.modal__body-comments p {
+  margin: 0;
+}
+.modal__body form {
+  width: 276px;
+  outline: 1px dashed black;
+  margin: 0 auto;
+}
+.modal__body form input,
+.modal__body form button {
+  font-size: 13px;
+  line-height: 15px;
+  font-family: Roboto;
+}
+.modal__body form input {
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  border: 1px solid #CCCCCC;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 3px;
+  padding-left: 10px;
+}
+.modal__body form button {
+  height: 30px;
+  background: #4997D0;
+  border-radius: 3px;
+  width: 100%;
+  left: calc(-23%);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  color: #FFFFFF;
 }
