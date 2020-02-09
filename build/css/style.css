@@ -280,6 +280,15 @@ body {
     width: 619px;
     height: 475px;
   }
+  .modal__close {
+    top: 1px;
+  }
+  .modal__close::before {
+    top: 8px;
+  }
+  .modal__close::after {
+    top: 9px;
+  }
   .modal__body {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;

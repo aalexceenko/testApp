@@ -76,7 +76,7 @@ var clickMainPhoto = function (evt) {
 document.querySelector('.main__photo').addEventListener('click', clickMainPhoto);
 
 
-  document.querySelector('.modal__close').addEventListener('click', function (evt) {
+document.querySelector('.modal__close').addEventListener('click', function (evt) {
   document.querySelector('.main').style.pointerEvents = '';
   document.querySelector('.modal').style.display = 'none';
   document.querySelector('body').style.overflow = '';
