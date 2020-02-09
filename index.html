@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <!-- <link rel="shortcut icon" href="favicon.png"> -->
+
   <link rel="stylesheet" href="css/style.min.css">
-  <!-- <link rel="stylesheet" href="normalize.css"> -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <!-- <link rel="shortcut icon" href=""> -->
+
   <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
   <title>Document</title>
 </head>
@@ -26,29 +29,39 @@
 
 
   <div class="modal">
-      <div class="modal__dialog">
-        <div class="modal__dialog-content">
-            <button class="modal__close"></button>
 
-          <div class="modal__body">    
-            <!-- <a href="#close" title="Close" class="modal__close">×</a> -->
-            <!-- <a href="#close" title="Close" class="modal__close"></a> -->
-            <!-- <button class="modal__close"></button> -->
+    <div class="modal__dialog">
+      <div class="modal__dialog-content" aria-haspopup="true">
+          <button type="button" class="modal__close" tabindex="0">"Закрыть"</button>
 
-            <img class="modal__body-img" src="" alt="">
-            <div class="modal__body-comments"></div>
+        <div class="modal__body">
 
-            <form action="post">
+          <img class="modal__body-img" src="" alt="">
+          <div class="modal__body-comments"></div>
 
-              <input type="text" id="nickname" name="nickname" placeholder="Ваше имя">
-              <input type="email" id="mail" name="nickname" placeholder="Ваша почта">
-              <input type="text" id="text" name="user-email" placeholder="Ваш комментарий">
-              <button>Оставить комментарий</button>
-            </form>
-          </div>
+          <form class="modal__form" method="post" action="" enctype="application/x-www-form-urlencoded" autocomplete="off">
+
+            <div>
+              <input type="text" id="nickname" class="form-input" name="name" required>
+              <label class="form-label">Ваше имя</label>
+            </div>
+
+            <div>
+              <input class="form-input" type="email" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" id="mail" name="user-email" required>
+              <label class="form-label">Ваша почта</label>
+            </div>
+
+            <div>
+              <input class="form-input" type="text" id="text" name="comment" required>
+              <label class="form-label">Ваш комментарий</label>
+            </div>
+
+            <button class="submit-button" type="submit">Оставить комментарий</button>
+          </form>
         </div>
       </div>
     </div>
+  </div>
 
   <script src="js/backend.js"></script>
   <script src="js/script.js"></script>

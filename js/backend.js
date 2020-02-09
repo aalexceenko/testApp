@@ -8,6 +8,7 @@
 
   var HttpStatusCodes = {
     SUCCESS: 200,
+    SUCCESS_UPLOAD: 204,
     BAD_REQUEST: 400,
     USER_UNAUTHORIZED: 401,
     NOT_FOUND: 404,
@@ -67,16 +68,35 @@
 // xhr.send();
   };
 
-  window.upload = function (data, onLoad, onError) {
+  window.upload = function (data, upload, onError, URL_UPLOAD) {
     var xhr = new XMLHttpRequest();
     xhr.responseType = 'json';
+    xhr.send(data, URL_UPLOAD);
 
-    xhr.addEventListener('load', function () {
-      if (xhr.status === HttpStatusCodes.SUCCESS) {
-        onLoad(xhr.response);
-      } else {
-        onError('Cтатус ответа: ' + xhr.status + ' ' + xhr.statusText);
-      }
+    xhr.addEventListener('upload', function () {
+        switch (xhr.status) {
+            case HttpStatusCodes.SUCCESS:
+              upload(xhr.response);
+              break;
+            case HttpStatusCodes.SUCCESS_UPLOAD:
+            //   upload(xhr.response);
+              console.log('Cool')
+              break;
+            case HttpStatusCodes.BAD_REQUEST:
+              onError('Неверный запрос');
+              break;
+            case HttpStatusCodes.USER_UNAUTHORIZED:
+              onError('Пользователь не авторизован');
+              break;
+            case HttpStatusCodes.NOT_FOUND:
+              onError('Страница не найдена');
+              break;
+            case HttpStatusCodes.SERVER_ERROR:
+              onError('Внутренняя ошибка сервера');
+              break;
+            default:
+              onError('Статус ответа: ' + xhr.status + ' ' + xhr.statusText);
+          }
     });
 
     xhr.addEventListener('error', function () {

@@ -1,4 +1,6 @@
 .main {
+  flex: 1 0 auto;
+  
   &__photo {
     width: 280px;
     margin: 0 auto;
@@ -8,6 +10,29 @@
       width: 280px;
       height: 171px;
       margin-bottom: 30px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .main {
+    // background-color: red;
+
+    &__photo {
+      width: 768px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    img {
+      width: 229px;
+      height: 142px;
+      // margin-right: 21px;
+
+      // &:nth-of-type(n+3) {
+      //   margin-right: 0;
+      // }
     }
   }
 }
